@@ -1,0 +1,117 @@
+/* Import Marathi font */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2&display=swap');
+
+/* General Styles */
+body {
+    font-family: 'Baloo Bhaina 2', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Header Styling */
+header {
+    background: #d32f2f;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Fancy Title */
+.fancy-title {
+    font-size: 52px;
+    font-weight: 900;
+    text-align: center;
+    padding: 25px 40px;
+    color: #fff;
+    background: radial-gradient(circle at top, #ffcc00, #ff3d00, #b30000);
+    border-radius: 20px;
+    font-family: 'Yatra One', cursive;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-shadow:
+        2px 2px 5px rgba(0, 0, 0, 0.8),
+        0 0 10px rgba(255, 255, 255, 0.3);
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.5),
+        inset 0 0 10px rgba(255, 255, 255, 0.2);
+    border: 4px solid #fff;
+    outline: 3px dashed #ffeb3b;
+    animation: flicker 2s infinite alternate;
+}
+
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Breaking News Ticker */
+.breaking-news {
+    background: #ffcc00;
+    padding: 8px;
+    font-weight: bold;
+}
+
+/* Main Sections */
+.featured-news, .trending {
+    padding: 20px;
+}
+
+.featured-news article {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+footer {
+    background: #d32f2f;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Dark Theme */
+.dark-theme {
+    background-color: #222;
+    color: #eee;
+}
+
+.dark-theme header {
+    background: #444;
+}
+
+.dark-theme footer {
+    background: #444;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - मराठी न्यूज</title>
+    <link rel="stylesheet" href="../css/admin-style.css">
+</head>
+<body>
+    <header>
+        <h1 class="fancy-title">🛠️ मराठी न्यूज - Admin Panel 🛠️</h1>
+    </header>
+
+    <main class="admin-dashboard">
+        <section class="login-section">
+            <h2>प्रवेश करा</h2>
+            <input type="text" id="username" placeholder="वापरकर्तानाव">
+            <input type="password" id="password" placeholder="पासवर्ड">
+            <button id="login-btn">लॉगिन</button>
+        </section>
+
+        <section class="news-management hidden">
+            <h2>बातमी व्यवस्थापन</h2>
+            <form id="news-form">
+                <input type="text" id="news-title" placeholder="बातमीचे शीर्षक">
+                <textarea id="news-content" placeholder="बातमीचे संपूर्ण विवरण"></textarea>
+                <select id="news-category">
+                    <option value="राजकारण">राजकारण</option>
+                    <option value="मनोरंजन">मनोरंजन</option>
+                    <option value="क्रीडा">क्रीडा</option>
+                    <option value="ताज्या बातम्या">ताज्या बातम्या</option>
+                </select>
+                <input type="file" id="news-image">
+                <button type="submit">बातमी जोडा</button>
+            </form>
+
+            <h3>संपादित करा / हटवा</h3>
+            <ul id="news-list"></ul>
+        </section>
+    </main>
+
+    <script src="../js/admin.js"></script>
+</body>
+</html>
