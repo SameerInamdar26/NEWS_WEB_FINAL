@@ -3,17 +3,14 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
-// Initialize Express App
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// ✅ Fix: Add Root Route to Prevent "Cannot GET /" Error
 app.get("/", (req, res) => {
     res.send("🚀 Backend is running!");
 });
 
-// Connect to MongoDB
 mongoose.connect("mongodb+srv://shabbirinamdarpress:9881642086@cluster0.pjkyxxf.mongodb.net/newsDB?retryWrites=true&w=majority&appName=Cluster0", {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -21,23 +18,20 @@ mongoose.connect("mongodb+srv://shabbirinamdarpress:9881642086@cluster0.pjkyxxf.
 .then(() => console.log("✅ MongoDB connected successfully!"))
 .catch(err => console.log("❌ MongoDB connection error:", err));
 
-// Define News Schema
 const NewsSchema = new mongoose.Schema({
     title: String,
     content: String,
     category: String,
-    image: String,
+    image: String, // ✅ Stores Base64 image or URL
     createdAt: { type: Date, default: Date.now }
 });
 
 const News = mongoose.model("News", NewsSchema);
 
-// API Route to Add News
 app.post("/add-news", async (req, res) => {
     try {
-        console.log("📥 Received Request:", req.body);
+        const { title, content, category, image } = req.body; // ✅ Accepts image as Base64 or URL
 
-        const { title, content, category, image } = req.body;
         if (!title || !content) {
             return res.status(400).send("❌ Title and content are required!");
         }
@@ -45,15 +39,12 @@ app.post("/add-news", async (req, res) => {
         const newNews = new News({ title, content, category, image });
         await newNews.save();
 
-        console.log("✅ News Saved:", newNews);
         res.status(201).send("✅ News added successfully!");
     } catch (error) {
-        console.log("❌ Error adding news:", error);
         res.status(500).send("❌ Error adding news!");
     }
 });
 
-// API Route to Get All News
 app.get("/get-news", async (req, res) => {
     try {
         const news = await News.find().sort({ createdAt: -1 });
@@ -63,7 +54,6 @@ app.get("/get-news", async (req, res) => {
     }
 });
 
-// API Route to Delete News
 app.delete("/delete-news/:id", async (req, res) => {
     try {
         await News.findByIdAndDelete(req.params.id);
@@ -73,6 +63,4 @@ app.delete("/delete-news/:id", async (req, res) => {
     }
 });
 
-// Start Server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+app.listen(5000, () => console.log(`🚀 Server running on port 5000`));

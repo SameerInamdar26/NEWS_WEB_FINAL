@@ -40,8 +40,6 @@
             const newsData = await response.json();
 
             const newsContainer = document.querySelector(".featured-news");
-
-            // Clear existing static content
             newsContainer.innerHTML = "<h2>प्रमुख बातम्या</h2>";
 
             newsData.forEach(news => {
@@ -51,6 +49,7 @@
                     <h3>${news.title}</h3>
                     <p>${news.content}</p>
                     <span>${news.category}</span>
+                    <button onclick="shareNews('${news.title}', '${news.content}', '${news._id}')">🔗 शेअर करा</button> 
                 `;
                 newsContainer.appendChild(article);
             });
