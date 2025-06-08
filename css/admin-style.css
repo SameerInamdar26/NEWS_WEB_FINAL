@@ -55,7 +55,6 @@ button:hover {
 
 /* News Management Section */
 .news-management {
-    display: none;
     background: white;
     padding: 20px;
     margin: 20px auto;
@@ -64,7 +63,7 @@ button:hover {
     box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
 }
 
-/* Hide element utility */
+/* Visibility Control */
 .hidden {
     display: none;
 }
