@@ -1,53 +1,115 @@
 <!DOCTYPE html>
 <html lang="mr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>मराठी न्यूज - ताज्या बातम्या</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Fonts: Marathi-friendly -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Main stylesheet -->
+   <link rel="stylesheet" href="css/style.css">
+
+  <title >मराठी बातम्या • Marathi News</title>
 </head>
 <body>
-    <header>
-        <h1 class="fancy-title">दक्ष २४  न्यूज</h1>
-</h1>
-        <nav>
-            <ul>
-                <li><a href="#">राजकारण</a></li>
-                <li><a href="#">मनोरंजन</a></li>
-                <li><a href="#">क्रीडा</a></li>
-                <li><a href="#">ताज्या बातम्या</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- ===== HEADER ===== -->
+  <header class="fancy-title">
+    <div class="logo">📰 दक्ष २४  न्यूज</div>
 
-    <section class="breaking-news">
-        <marquee>🔴 ब्रेकिंग: नवीन आर्थिक धोरण जाहीर… | लोकप्रिय अभिनेता नवीन चित्रपटासाठी तयारी करत आहे…</marquee>
-    </section>
+    <!-- Desktop nav -->
+    <nav class="nav">
+      <ul>
+        <li><a href="#">मुख्यपृष्ठ</a></li>
+        <li><a href="#categories">वर्ग</a></li>
+        <li><a href="#latest">ताज्या बातम्या</a></li>
+        <li><a href="#contact">संपर्क</a></li>
+      </ul>
+    </nav>
 
-    <main>
-        <section class="featured-news">
-            <h2>प्रमुख बातम्या</h2>
-            <article>
-                <img src="images/sample.jpg" alt="बातमी">
-                <h3>महत्वाची बातमी - आजच्या घडामोडी</h3>
-                <p>आजच्या घडामोडींचा संपूर्ण आढावा येथे...</p>
-                <a href="article.html">अधिक वाचा</a>
-            </article>
-        </section>
+    <!-- Mobile hamburger -->
+    <button id="mobile-toggle" class="hamburger" aria-label="Open menu">
+      ☰
+    </button>
+  </header>
 
-        <section class="trending">
-            <h2>ट्रेंडिंग बातम्या</h2>
-            <ul>
-                <li><a href="#">क्रिकेट स्पर्धेत भारताची शानदार कामगिरी</a></li>
-                <li><a href="#">नवीन चित्रपटाचे ट्रेलर प्रदर्शित</a></li>
-                <li><a href="#">नवीन तंत्रज्ञानाची घोषणा</a></li>
-            </ul>
-        </section>
-    </main>
+  <!-- ===== FEATURED SLIDER ===== -->
+  <section class="carousel">
+    <div class="slides">
+      <article class="slide active">
+        <img src="assets/images/featured1.jpg" alt="Featured 1" />
+        <h2>मुंबईत सुरू झालेली मॉन्सूनपूर्व पावसाची सुरुवात</h2>
+      </article>
+      <article class="slide">
+        <img src="assets/images/featured2.jpg" alt="Featured 2" />
+        <h2>परीक्षार्थ्यांसाठी SPPU ची नवी परिपत्रके जाहीर</h2>
+      </article>
+      <article class="slide">
+        <img src="assets/images/featured3.jpg" alt="Featured 3" />
+        <h2>मराठी चित्रपट सृष्टीतला नवीन प्रवाह</h2>
+      </article>
+    </div>
 
-    <footer>
-        <p>© 2025 मराठी न्यूज | सर्व हक्क सुरक्षित</p>
-    </footer>
+    <!-- Prev/Next arrows -->
+    <button class="carousel-control prev" aria-label="Previous">‹</button>
+    <button class="carousel-control next" aria-label="Next">›</button>
+  </section>
+
+  <!-- ===== CATEGORIES ===== -->
+  <section id="categories" class="categories">
+    <h2>वर्ग</h2>
+    <div class="category-grid">
+      <a href="#">राजकारण</a>
+      <a href="#">क्रीडा</a>
+      <a href="#">मनोरंजन</a>
+      <a href="#">तंत्रज्ञान</a>
+      <a href="#">शेती</a>
+      <a href="#">सहकार</a>
+    </div>
+  </section>
+
+  <!-- ===== LATEST NEWS ===== -->
+  <section id="latest" class="latest">
+    <h2>ताज्या बातम्या</h2>
+
+    <!-- Sample articles (static). Real data will load via fetch(API) -->
+    <article class="news-card">
+      <img src="assets/images/sample1.jpg" alt="Sample 1" />
+      <div class="news-content">
+        <h3>नाशिकमध्ये द्राक्ष बाजाराला तेजी</h3>
+        <p>नाशिक जिल्ह्यातील शेतकऱ्यांच्या द्राक्षाला यंदा उच्चांकी दर मिळत असून निर्यातीतही वाढ झाली आहे…</p>
+      </div>
+    </article>
+
+    <article class="news-card">
+      <img src="assets/images/sample2.jpg" alt="Sample 2" />
+      <div class="news-content">
+        <h3>आईपीएल २०२५ मध्ये मुंबई इंडियन्सची दमदार कामगिरी</h3>
+        <p>मुंबई इंडियन्सने सलग तिसरी मॅच जिंकत गुणतालिकेत वरच्या स्थानावर झेप घेतली आहे…</p>
+      </div>
+    </article>
+
+    <article class="news-card">
+      <img src="assets/images/sample3.jpg" alt="Sample 3" />
+      <div class="news-content">
+        <h3>‘इलेक्ट्रिक वाहन’ धोरणाचा ग्रामीण भागात प्रभाव</h3>
+        <p>राज्य सरकारच्या नवीन धोरणामुळे ग्रामीण भागात इलेक्ट्रिक वाहनांचे प्रमाण वाढत आहे…</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="contact" class="footer">
+    <p>© 2025 मराठी न्यूज • All rights reserved.</p>
+    <div class="social">
+      <a href="#" aria-label="Twitter">🐦</a>
+      <a href="#" aria-label="Facebook">📘</a>
+      <a href="#" aria-label="Instagram">📸</a>
+    </div>
+  </footer>
+
+  <!-- Main script -->
+  <script src="assets/js/script.js" defer></script>
 </body>
 </html>
-
