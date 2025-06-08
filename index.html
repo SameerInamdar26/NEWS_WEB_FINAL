@@ -8,8 +8,7 @@
 </head>
 <body>
     <header>
-        <h1 class="fancy-title">दक्ष २४  न्यूज</h1>
-</h1>
+        <h1 class="fancy-title">दक्ष २४ न्यूज</h1>
         <nav>
             <ul>
                 <li><a href="#">राजकारण</a></li>
@@ -27,29 +26,40 @@
     <main>
         <section class="featured-news">
             <h2>प्रमुख बातम्या</h2>
-            <article>
-                <img src="images/sample.jpg" alt="बातमी">
-                <h3>महत्वाची बातमी - आजच्या घडामोडी</h3>
-                <p>आजच्या घडामोडींचा संपूर्ण आढावा येथे...</p>
-                <a href="article.html">अधिक वाचा</a>
-            </article>
-        </section>
-
-        <section class="trending">
-            <h2>ट्रेंडिंग बातम्या</h2>
-            <ul>
-                <li><a href="#">क्रिकेट स्पर्धेत भारताची शानदार कामगिरी</a></li>
-                <li><a href="#">नवीन चित्रपटाचे ट्रेलर प्रदर्शित</a></li>
-                <li><a href="#">नवीन तंत्रज्ञानाची घोषणा</a></li>
-            </ul>
         </section>
     </main>
 
     <footer>
         <p>© 2025 मराठी न्यूज | सर्व हक्क सुरक्षित</p>
-        
-
     </footer>
+
+    <script>
+    async function fetchNews() {
+        try {
+            const response = await fetch("http://localhost:5000/get-news");
+            const newsData = await response.json();
+
+            const newsContainer = document.querySelector(".featured-news");
+
+            // Clear existing static content
+            newsContainer.innerHTML = "<h2>प्रमुख बातम्या</h2>";
+
+            newsData.forEach(news => {
+                const article = document.createElement("article");
+                article.innerHTML = `
+                    <img src="${news.image}" alt="बातमी">
+                    <h3>${news.title}</h3>
+                    <p>${news.content}</p>
+                    <span>${news.category}</span>
+                `;
+                newsContainer.appendChild(article);
+            });
+        } catch (error) {
+            console.error("❌ News fetching error:", error);
+        }
+    }
+
+    fetchNews();
+    </script>
 </body>
 </html>
-
