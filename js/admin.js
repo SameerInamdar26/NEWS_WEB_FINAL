@@ -18,15 +18,17 @@ const newsForm = document.getElementById("news-form");
 const newsList = document.getElementById("news-list");
 
 newsForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    
-    const title = document.getElementById("news-title").value;
-    const content = document.getElementById("news-content").value;
-    const category = document.getElementById("news-category").value;
+    event.preventDefault(); // ✅ Prevents page refresh
+
+    console.log("📤 News submission started..."); // ✅ Debugging log
+
+    const title = document.getElementById("news-title").value.trim();
+    const content = document.getElementById("news-content").value.trim();
+    const category = document.getElementById("news-category").value.trim();
     const imageInput = document.getElementById("news-image").files[0];
 
     if (!title || !content) {
-        alert("कृपया पूर्ण माहिती भरा!");
+        alert("❌ Title and content are required!");
         return;
     }
 
@@ -40,19 +42,27 @@ newsForm.addEventListener("submit", async (event) => {
         });
     }
 
-    const response = await fetch("http://localhost:5000/add-news", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title, content, category, image: imageBase64 })
-    });
+    console.log("📤 Sending data:", { title, content, category, image: imageBase64 });
 
-    if (response.ok) {
-        alert("✅ News added successfully!");
-        newsForm.reset();
-        loadArticles(); 
-    } else {
-        alert("❌ Failed to add news!");
-        console.error("❌ Error adding news:", response.statusText);
+    try {
+        const response = await fetch("http://localhost:5000/add-news", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ title, content, category, image: imageBase64 })
+        });
+
+        console.log("📥 Response received:", response);
+
+        if (response.ok) {
+            alert("✅ News added successfully!");
+            newsForm.reset();
+            loadArticles(); 
+        } else {
+            alert("❌ Failed to add news!");
+            console.error("❌ Error adding news:", response.statusText);
+        }
+    } catch (error) {
+        console.error("❌ Network error:", error);
     }
 });
 

@@ -30,7 +30,9 @@ const News = mongoose.model("News", NewsSchema);
 
 app.post("/add-news", async (req, res) => {
     try {
-        const { title, content, category, image } = req.body; // ✅ Accepts image as Base64 or URL
+        console.log("📥 Received Request:", req.body); // ✅ Debugging log
+
+        const { title, content, category, image } = req.body;
 
         if (!title || !content) {
             return res.status(400).send("❌ Title and content are required!");
@@ -39,8 +41,10 @@ app.post("/add-news", async (req, res) => {
         const newNews = new News({ title, content, category, image });
         await newNews.save();
 
+        console.log("✅ News Saved:", newNews);
         res.status(201).send("✅ News added successfully!");
     } catch (error) {
+        console.error("❌ Error saving news:", error);
         res.status(500).send("❌ Error adding news!");
     }
 });
